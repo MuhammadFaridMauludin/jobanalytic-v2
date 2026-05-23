@@ -9,5 +9,5 @@ Route::get('/', [AuthController::class, 'showLogin'])
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/dashboard', function () {
-    return 'Login berhasil';
+    return view('dashboard.dashboard');
 })->middleware('auth');
