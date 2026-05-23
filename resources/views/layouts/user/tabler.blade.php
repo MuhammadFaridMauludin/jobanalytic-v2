@@ -54,5 +54,35 @@
     <!-- Tabler Core -->
     <script src="{{ asset('tabler/dist/js/tabler.min.js') }}" defer></script>
     <script src="{{ asset('tabler/dist/js/demo.min.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- konfirmasi logout -->
+    <script>
+        function confirmLogout(event) {
+
+            event.preventDefault();
+
+            Swal.fire({
+                title: 'Logout?',
+                text: 'Anda yakin ingin logout?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Ya, logout',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+
+                if (result.isConfirmed) {
+
+                    document.getElementById('logout-form').submit();
+
+                }
+
+            });
+
+        }
+    </script>
+
+</body>
   </body>
 </html>
