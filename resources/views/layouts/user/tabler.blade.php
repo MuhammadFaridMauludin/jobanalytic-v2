@@ -128,15 +128,12 @@
         @include('layouts.user.sidebar')
         <!-- Navbar -->
         @include('layouts.user.header')
+        <!-- isi konten -->
         <div class="page-wrapper">
-
-            <!-- isi konten -->
-            <div class="page-wrapper">
-                @yield('content')
-            </div>
-            <!-- Footer -->
-            @include('layouts.user.footer')
+            @yield('content')
         </div>
+        <!-- Footer -->
+        @include('layouts.user.footer')
     </div>
 
     <!-- Libs JS -->
@@ -298,7 +295,7 @@
 
                 chart: {
                     type: "area",
-                    height: 250,
+                    height: 300,
                     toolbar: {
                         show: false
                     },
@@ -355,7 +352,7 @@
 
                 chart: {
                     type: "donut",
-                    height: 350
+                    height: 300
                 },
 
                 series: [120, 90, 70, 50, 40],
@@ -392,7 +389,7 @@
 
                 chart: {
                     type: "bar",
-                    height: 350,
+                    height: 350
                     toolbar: {
                         show: false
                     }
@@ -443,7 +440,7 @@
 
                 chart: {
                     type: "bar",
-                    height: 350,
+                    height: 300,
                     toolbar: {
                         show: false
                     }
@@ -509,7 +506,7 @@
 
                 chart: {
                     type: "bar",
-                    height: 350,
+                    height: 300,
                     toolbar: {
                         show: false
                     }
@@ -564,7 +561,7 @@
 
                 chart: {
                     type: "donut",
-                    height: 350
+                    height: 300
                 },
 
                 series: [40, 35, 20, 5],

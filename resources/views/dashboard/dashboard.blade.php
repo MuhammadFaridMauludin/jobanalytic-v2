@@ -35,10 +35,11 @@
             </div> --}}
             </div>
         </div>
-        <!-- stats overview -->
+
         <div class="page-body">
             <div class="container-xl">
-                <div class="row row-deck row-cards">
+                <!--s1 stats overview -->
+                <div class="row row-deck row-cards mb-3">
                     <div class="col-sm-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
@@ -195,41 +196,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- kategori bidang it -->
-        <div class="page-body">
-            <div class="container-xl">
-                <div class="row row-cards">
-                    <div class="col-lg-6">
-
-                        <div class="card">
-
-                            <div class="card-header border-0">
-
-                                <div class="card-title">
-                                    Kategori Bidang IT
-                                </div>
-
-                            </div>
-
-                            <div class="card-body">
-
-                                <div id="chart-kategori-it"></div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- tren lowongan it -->
-        <div class="page-body">
-            <div class="container-xl">
-                <div class="row row-cards">
-                    <div class="col-lg-6">
+                <!--s2 -->
+                <div class="row mb-3">
+                    <!-- tren lowongan it -->
+                    <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header border-0">
                                 <div class="card-title">Development activity</div>
@@ -262,114 +232,119 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- top skill it -->
-        <div class="page-body">
-            <div class="container-xl">
-                <div class="row row-cards">
-                    <div class="col-lg-6">
+                    <!-- kategori bidang it -->
+                    <div class="col-lg-4">
+
                         <div class="card">
+
+                            <div class="card-header border-0">
+
+                                <div class="card-title">
+                                    Kategori Bidang IT
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <div id="chart-kategori-it"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!--s2 -->
+                <div class="row mb-3">
+                    <!-- top skill it -->
+                    <div class="col-lg-6 ">
+                        <div class="card h-100">
                             <div class="card-body">
                                 <h3 class="card-title">top skill it</h3>
                                 <div id="chart-mentions" class="chart-lg"></div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <!-- rata rata gaji -->
-        <div class="col-lg-6">
+                    <!-- rata rata gaji -->
+                    <div class="col-lg-6">
 
-            <div class="card">
+                        <div class="card">
 
-                <div class="card-header border-0">
+                            <div class="card-header border-0">
 
-                    <div class="card-title">
-                        Rata-rata Gaji per Role
-                    </div>
+                                <div class="card-title">
+                                    Rata-rata Gaji per Role
+                                </div>
 
-                </div>
+                            </div>
 
-                <div class="card-body">
+                            <div class="card-body">
 
-                    <div id="chart-average-salary"></div>
+                                <div id="chart-average-salary"></div>
 
-                </div>
-
-            </div>
-
-        </div>
-        <!-- top 10 company -->
-        <div class="col-lg-6">
-
-            <div class="card">
-
-                <div class="card-header border-0">
-
-                    <div class="card-title">
-                        Top 10 Company Hiring
-                    </div>
-
-                </div>
-
-                <div class="card-body">
-
-                    <div id="chart-top-company"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <!-- proporsi pengalaman -->
-        <div class="col-lg-6">
-
-            <div class="card">
-
-                <div class="card-header border-0">
-
-                    <div class="card-title">
-                        Proporsi Lowongan Berdasarkan Pengalaman
-                    </div>
-
-                </div>
-
-                <div class="card-body">
-
-                    <div id="chart-experience-level"></div>
-
-                </div>
-
-            </div>
-
-        </div>
-        <!-- proporsi pengalaman -->
-        <div class="col-lg-6">
-
-            <div class="card">
-
-                <div class="card-body">
-
-                    <h3 class="card-title">
-                        Lokasi Lowongan di Indonesia
-                    </h3>
-
-                    <div class="ratio ratio-21x9">
-
-                        <div>
-
-                            <div id="map-indonesia" class="w-100 h-100"></div>
+                            </div>
 
                         </div>
 
                     </div>
-
                 </div>
+                <!--s3 -->
+                <div class="row mb-3">
+                    <!-- top 10 company -->
+                    <div class="col-lg-7">
 
+                        <div class="card">
+
+                            <div class="card-header border-0">
+
+                                <div class="card-title">
+                                    Top 10 Company Hiring
+                                </div>
+
+                            </div>
+
+                            <div class="card-body">
+
+                                <div id="chart-top-company"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <!-- proporsi pengalaman -->
+                    <div class="col-lg-5">
+                        <div class="card h-100">
+                            <div class="card-header border-0">
+                                <div class="card-title">
+                                    Proporsi Lowongan Berdasarkan Pengalaman
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div id="chart-experience-level"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--s4 -->
+                <div class="row">
+                    <!-- lokasi lowongan -->
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title">
+                                    Lokasi Lowongan di Indonesia
+                                </h3>
+                                <div class="ratio ratio-21x9">
+                                    <div>
+                                        <div id="map-indonesia" class="w-100 h-100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
     @endsection
