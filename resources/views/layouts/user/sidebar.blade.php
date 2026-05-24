@@ -238,14 +238,29 @@
                             </svg>
                         </span>
                         <span class="nav-link-title">
-                            Interface
+                            Data Lowongan
                         </span>
                     </a>
                     <div class="dropdown-menu">
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="./alerts.html">
-                                    Alerts
+                                <a class="dropdown-item" href="/dataLowongan">
+                                    Semua Lowongan
+                                </a>
+                            </div>
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/topCompany">
+                                    Top Company
+                                </a>
+                            </div>
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/topSkill">
+                                    Top Skill
+                                </a>
+                            </div>
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/lokasi">
+                                    Lokasi
                                 </a>
                             </div>
                         </div>
