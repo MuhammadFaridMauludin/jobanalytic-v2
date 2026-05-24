@@ -35,7 +35,6 @@
             </div> --}}
             </div>
         </div>
-
         <div class="page-body">
             <div class="container-xl">
                 <!--s1 stats overview -->
@@ -58,7 +57,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="h1 mb-3">75%</div>
+                                <div class="h1 mb-3">{{ number_format($totalJobs) }}</div>
                                 <div class="d-flex mb-2">
                                     <div>Conversion rate</div>
                                     <div class="ms-auto">
@@ -102,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline">
-                                    <div class="h1 mb-0 me-2">$4,300</div>
+                                    <div class="h1 mb-0 me-2">{{ number_format($totalCompanies) }}</div>
                                     <div class="me-auto">
                                         <span class="text-green d-inline-flex align-items-center lh-1">
                                             8% <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
@@ -139,7 +138,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline">
-                                    <div class="h1 mb-3 me-2">6,782</div>
+                                    <div class="h1 mb-3 me-2">Rp {{ number_format($avgSalary, 0, ',', '.') }}</div>
                                     <div class="me-auto">
                                         <span class="text-yellow d-inline-flex align-items-center lh-1">
                                             0% <!-- Download SVG icon from http://tabler-icons.io/i/minus -->
@@ -176,7 +175,7 @@
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-baseline">
-                                    <div class="h1 mb-3 me-2">2,986</div>
+                                    <div class="h1 mb-3 me-2">{{ $topSkill }}</div>
                                     <div class="me-auto">
                                         <span class="text-green d-inline-flex align-items-center lh-1">
                                             4% <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
@@ -202,7 +201,7 @@
                     <div class="col-lg-8">
                         <div class="card">
                             <div class="card-header border-0">
-                                <div class="card-title">Development activity</div>
+                                <div class="card-title">Tren Lowongan It</div>
                             </div>
                             <div class="position-relative">
                                 <div class="position-absolute top-0 left-0 px-3 mt-1 w-75">
@@ -212,7 +211,7 @@
                                             </div>
                                         </div>
                                         <div class="col">
-                                            <div>Today's Earning: $4,262.40</div>
+                                            <div> {{ number_format($totalJobs) }} Lowongan</div>
                                             <div class="text-secondary">
                                                 <!-- Download SVG icon from http://tabler-icons.io/i/trending-up -->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -224,6 +223,7 @@
                                                     <path d="M14 7l7 0l0 7" />
                                                 </svg>
                                                 +5% more than yesterday
+                                                {{-- {{ round($jobGrowth) }}% dibanding minggu lalu --}}
                                             </div>
                                         </div>
                                     </div>
@@ -234,28 +234,19 @@
                     </div>
                     <!-- kategori bidang it -->
                     <div class="col-lg-4">
-
                         <div class="card">
-
                             <div class="card-header border-0">
-
                                 <div class="card-title">
                                     Kategori Bidang IT
                                 </div>
-
                             </div>
-
                             <div class="card-body">
-
                                 <div id="chart-kategori-it"></div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-                <!--s2 -->
+                <!--s3 -->
                 <div class="row mb-3">
                     <!-- top skill it -->
                     <div class="col-lg-6 ">
@@ -268,50 +259,32 @@
                     </div>
                     <!-- rata rata gaji -->
                     <div class="col-lg-6">
-
-                        <div class="card">
-
+                        <div class="card h-100">
                             <div class="card-header border-0">
-
                                 <div class="card-title">
                                     Rata-rata Gaji per Role
                                 </div>
-
                             </div>
-
                             <div class="card-body">
-
                                 <div id="chart-average-salary"></div>
-
                             </div>
-
                         </div>
-
                     </div>
                 </div>
-                <!--s3 -->
+                <!--s4 -->
                 <div class="row mb-3">
                     <!-- top 10 company -->
                     <div class="col-lg-7">
-
                         <div class="card">
-
                             <div class="card-header border-0">
-
                                 <div class="card-title">
                                     Top 10 Company Hiring
                                 </div>
-
                             </div>
-
                             <div class="card-body">
-
                                 <div id="chart-top-company"></div>
-
                             </div>
-
                         </div>
-
                     </div>
                     <!-- proporsi pengalaman -->
                     <div class="col-lg-5">
@@ -327,11 +300,11 @@
                         </div>
                     </div>
                 </div>
-                <!--s4 -->
+                <!--s5 -->
                 <div class="row">
-                    <!-- lokasi lowongan -->
-                    <div class="col-lg-12">
-                        <div class="card">
+                    <!-- map lokasi -->
+                    <div class="col-lg-8">
+                        <div class="card h-100">
                             <div class="card-body">
                                 <h3 class="card-title">
                                     Lokasi Lowongan di Indonesia
@@ -341,6 +314,34 @@
                                         <div id="map-indonesia" class="w-100 h-100"></div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- top lokasi -->
+                    <div class="col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h3 class="card-title">
+                                    Top Lokasi Hiring
+                                </h3>
+                                @foreach ($topLocations as $location)
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>
+                                                {{ $location->location }}
+                                            </span>
+                                            <span class="fw-bold">
+                                                {{ $location->total_jobs }}
+                                            </span>
+                                        </div>
+                                        <!-- progress bar -->
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar"
+                                                style="width: {{ ($location->total_jobs / $topLocations->max('total_jobs')) * 100 }}%">
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

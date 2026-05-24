@@ -152,6 +152,7 @@
     <link href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
     <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/indonesia.js"></script>
 
     <!-- konfirmasi logout -->
     <script>
@@ -307,6 +308,8 @@
                 series: [{
                     name: "Lowongan",
                     data: [120, 150, 180, 170, 210, 250, 300]
+                    // data: @json($monthlyJobs)
+
                 }],
 
                 xaxis: {
@@ -355,15 +358,17 @@
                     height: 300
                 },
 
-                series: [120, 90, 70, 50, 40],
+                // series: [120, 90, 70, 50, 40],
+                series: @json($categoryTotals),
 
-                labels: [
-                    "Web Developer",
-                    "UI/UX Designer",
-                    "Data Analyst",
-                    "Mobile Developer",
-                    "DevOps"
-                ],
+                // labels: [
+                //     "Web Developer",
+                //     "UI/UX Designer",
+                //     "Data Analyst",
+                //     "Mobile Developer",
+                //     "DevOps"
+                // ],
+                labels: @json($categoryLabels),
 
                 legend: {
                     position: "bottom"
@@ -389,7 +394,7 @@
 
                 chart: {
                     type: "bar",
-                    height: 350
+                    height: 350,
                     toolbar: {
                         show: false
                     }
@@ -397,23 +402,26 @@
 
                 series: [{
                     name: "Jumlah Lowongan",
-                    data: [120, 98, 85, 70, 60, 45]
+                    // data: [120, 98, 85, 70, 60, 45]
+                    data: @json($skillTotals)
                 }],
 
                 xaxis: {
-                    categories: [
-                        "Laravel",
-                        "Python",
-                        "React",
-                        "Java",
-                        "Node.js",
-                        "Docker"
-                    ]
+                    // categories: [
+                    //     "Laravel",
+                    //     "Python",
+                    //     "React",
+                    //     "Java",
+                    //     "Node.js",
+                    //     "Docker"
+                    // ]
+                    categories: @json($skillLabels)
                 },
 
                 plotOptions: {
                     bar: {
-                        borderRadius: 6,
+                        horizontal: false,
+                        borderRadius: 2,
                         columnWidth: '50%'
                     }
                 },
@@ -448,23 +456,26 @@
 
                 series: [{
                     name: "Rata-rata Gaji",
-                    data: [8000000, 7000000, 12000000, 9000000, 6000000]
+                    data: @json($salaryRoleData)
                 }],
 
                 xaxis: {
-                    categories: [
-                        "Backend Dev",
-                        "Frontend Dev",
-                        "Data Scientist",
-                        "DevOps",
-                        "UI/UX"
-                    ]
+
+                    categories: @json($salaryRoleLabels),
+
+                    labels: {
+                        formatter: function(value) {
+                            return "Rp " + (value / 1000000).toFixed(0) + "jt";
+                        }
+                    }
+
                 },
 
                 plotOptions: {
                     bar: {
+                        horizontal: true,
                         borderRadius: 6,
-                        columnWidth: '50%'
+                        barHeight: '60%',
                     }
                 },
 
@@ -474,9 +485,7 @@
 
                 yaxis: {
                     labels: {
-                        formatter: function(value) {
-                            return "Rp " + (value / 1000000).toFixed(0) + "jt";
-                        }
+                        show: true
                     }
                 },
 
@@ -514,22 +523,24 @@
 
                 series: [{
                     name: "Jumlah Lowongan",
-                    data: [120, 110, 95, 88, 80, 72, 65, 58, 50, 45]
+                    // data: [120, 110, 95, 88, 80, 72, 65, 58, 50, 45]
+                    data: @json($companyTotals)
                 }],
 
                 xaxis: {
-                    categories: [
-                        "Tokopedia",
-                        "Shopee",
-                        "Traveloka",
-                        "Gojek",
-                        "Bukalapak",
-                        "Blibli",
-                        "Ruangguru",
-                        "OVO",
-                        "Dana",
-                        "Telkom"
-                    ]
+                    // categories: [
+                    //     "Tokopedia",
+                    //     "Shopee",
+                    //     "Traveloka",
+                    //     "Gojek",
+                    //     "Bukalapak",
+                    //     "Blibli",
+                    //     "Ruangguru",
+                    //     "OVO",
+                    //     "Dana",
+                    //     "Telkom"
+                    // ]
+                    categories: @json($companyLabels)
                 },
 
                 plotOptions: {
@@ -564,14 +575,16 @@
                     height: 300
                 },
 
-                series: [40, 35, 20, 5],
+                // series: [40, 35, 20, 5],
+                series: @json($experienceTotals),
 
-                labels: [
-                    "Intern",
-                    "Junior",
-                    "Senior",
-                    "Lead"
-                ],
+                labels: @json($experienceLabels),
+                // labels: [
+                //     "Intern",
+                //     "Junior",
+                //     "Senior",
+                //     "Lead"
+                // ],
 
                 legend: {
                     position: "bottom"
@@ -599,31 +612,24 @@
     <!-- untuk top lowongan -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-
             const map = new jsVectorMap({
-
                 selector: "#map-indonesia",
-
                 map: "world",
-
-                zoomButtons: true,
-
                 selectedRegions: ["ID"],
-
+                focusOn: {
+                    regions: ["ID"],
+                    animate: true
+                },
+                zoomButtons: true,
                 regionStyle: {
-
                     initial: {
                         fill: "#dce7f3"
                     },
-
                     selected: {
                         fill: "#206bc4"
                     }
-
                 }
-
             });
-
         });
     </script>
 
