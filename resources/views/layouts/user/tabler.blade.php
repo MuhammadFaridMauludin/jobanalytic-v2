@@ -126,15 +126,16 @@
     <div class="page">
         <!-- Sidebar -->
         @include('layouts.user.sidebar')
-
+        <!-- Navbar -->
+        @include('layouts.user.header')
         <!-- isi konten -->
         <div class="page-wrapper">
-            <!-- Navbar -->
-            @include('layouts.user.header')
+
             @yield('content')
-            <!-- Footer -->
-            @include('layouts.user.footer')
+
         </div>
+        <!-- Footer -->
+        @include('layouts.user.footer')
 
     </div>
 

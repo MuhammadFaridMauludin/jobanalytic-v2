@@ -221,49 +221,62 @@
                         </span>
                     </a>
                 </li>
+
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
-                        data-bs-auto-close="false" role="button" aria-expanded="false">
-                        <span
-                            class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                stroke-linecap="round" stroke-linejoin="round">
+                    <a class="nav-link dropdown-toggle
+        {{ Request::is(['topCompany', 'topSkill', 'dataLowongan', 'lokasi', 'salary']) ? 'show' : '' }}"
+                        href="#navbar-base" data-bs-toggle="dropdown" aria-expanded="true">
+
+                        <span class="nav-link-icon d-md-none d-lg-inline-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round"
+                                class="icon icon-tabler icons-tabler-outline icon-tabler-brand-databricks">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                                <path d="M12 12l8 -4.5" />
-                                <path d="M12 12l0 9" />
-                                <path d="M12 12l-8 -4.5" />
-                                <path d="M16 5.25l-8 4.5" />
+                                <path d="M3 17l9 5l9 -5v-3l-9 5l-9 -5v-3l9 5l9 -5v-3l-9 5l-9 -5l9 -5l5.418 3.01" />
                             </svg>
                         </span>
+
                         <span class="nav-link-title">
                             Data Lowongan
                         </span>
                     </a>
-                    <div class="dropdown-menu">
+
+                    <div
+                        class="dropdown-menu
+        {{ Request::is(['topCompany', 'topSkill', 'dataLowongan', 'lokasi', 'salary']) ? 'show' : '' }}">
+
                         <div class="dropdown-menu-columns">
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="/dataLowongan">
                                     Semua Lowongan
                                 </a>
                             </div>
+
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="/topCompany">
                                     Top Company
                                 </a>
                             </div>
+
                             <div class="dropdown-menu-column">
                                 <a class="dropdown-item" href="/topSkill">
                                     Top Skill
                                 </a>
                             </div>
                             <div class="dropdown-menu-column">
-                                <a class="dropdown-item" href="/lokasi">
-                                    Lokasi
+                                <a class="dropdown-item" href="/salary">
+                                    Salary
                                 </a>
                             </div>
+                            <div class="dropdown-menu-column">
+                                <a class="dropdown-item" href="/lokasi">
+                                    Location
+                                </a>
+                            </div>
+
                         </div>
+                    </div>
                 </li>
             </ul>
         </div>

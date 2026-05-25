@@ -5,7 +5,10 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataController;
 
-Route::get('/', [AuthController::class, 'showLogin'])
+Route::get('/', function () { return view('welcome');
+})->name('welcome');
+
+Route::get('/login', [AuthController::class, 'showLogin'])
     ->name('login');
 
 Route::post('/login', [AuthController::class, 'login']);
@@ -37,4 +40,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/location/{location}', [DataController::class, 'detailLokasi'])
         ->name('data.detailLokasi');
+
+    Route::get('/salary', [DataController::class, 'salary'])
+    ->name('data.salary');
 });

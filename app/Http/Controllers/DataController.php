@@ -152,4 +152,30 @@ class DataController extends Controller
         'location'
     ));
     }
+    public function salary()
+{
+    $salaryRoles = DB::table('jobs_clean')
+        ->select(
+            'title',
+            DB::raw('AVG((salary_min + salary_max)/2) as avg_salary')
+        )
+        ->whereNotNull('salary_min')
+        ->whereNotNull('salary_max')
+        ->groupBy('title')
+        ->orderByDesc('avg_salary')
+        ->limit(10)
+        ->get();
+    $salaryLabels = $salaryRoles->pluck('title');
+    $salaryTotals = $salaryRoles->pluck('avg_salary');
+    $highestSalaryRole = $salaryLabels[0] ?? 'No Data';
+    $highestSalaryValue = $salaryTotals[0] ?? 0;
+
+    return view('data.salary', compact(
+        'salaryRoles',
+        'salaryLabels',
+        'salaryTotals',
+        'highestSalaryRole',
+        'highestSalaryValue'
+    ));
+}
 }
