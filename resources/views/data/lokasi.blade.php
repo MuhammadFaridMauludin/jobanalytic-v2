@@ -36,5 +36,94 @@
             </div>
         </div>
     </div>
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row">
+                <!-- chart -->
+                <div class="col-lg-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Distribusi Lokasi Lowongan
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-location"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- table -->
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Top Lokasi Hiring
+                            </h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Lokasi</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($locations as $location)
+                                        <tr>
+                                            <td>
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('data.detailLokasi', $location->location) }}">
+                                                    {{ $location->location }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{ $location->total_jobs }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            new ApexCharts(document.querySelector("#chart-location"), {
+                chart: {
+                    type: "bar",
+                    height: 350,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                series: [{
+                    name: "Jumlah Lowongan",
+                    data: @json($locationTotals)
+                }],
+                xaxis: {
+                    categories: @json($locationLabels)
+                },
+                plotOptions: {
+                    bar: {
+                        borderRadius: 6,
+                        columnWidth: '50%'
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                colors: ["#206bc4"],
+                grid: {
+                    strokeDashArray: 4
+                }
+            }).render();
+        });
+    </script>
 @endsection

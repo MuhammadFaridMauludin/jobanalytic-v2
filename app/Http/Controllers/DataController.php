@@ -120,7 +120,36 @@ class DataController extends Controller
     }
     public function lokasi()
     {
-        return view('data.lokasi');
+    $locations = DB::table('jobs_clean')
+        ->select(
+            'location',
+            DB::raw('COUNT(*) as total_jobs')
+        )
+        ->whereNotNull('location')
+        ->groupBy('location')
+        ->orderByDesc('total_jobs')
+        ->limit(10)
+        ->get();
 
+    $locationLabels = $locations->pluck('location');
+
+    $locationTotals = $locations->pluck('total_jobs');
+
+    return view('data.lokasi', compact(
+        'locations',
+        'locationLabels',
+        'locationTotals'
+    ));
+    }
+    public function detailLokasi(string $location)
+    {
+    $jobs = DB::table('jobs_clean')
+        ->where('location', $location)
+        ->paginate(10);
+
+    return view('data.detailLokasi', compact(
+        'jobs',
+        'location'
+    ));
     }
 }

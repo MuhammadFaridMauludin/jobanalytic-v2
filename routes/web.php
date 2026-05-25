@@ -35,4 +35,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/lokasi', [DataController::class, 'lokasi'])
         ->name('data.lokasi');
 
+    Route::get('/location/{location}', [DataController::class, 'detailLokasi'])
+        ->name('data.detailLokasi');
 });
