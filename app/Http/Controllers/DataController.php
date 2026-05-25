@@ -66,7 +66,7 @@ class DataController extends Controller
     ));
     }
     public function detailCompany (string $company)
-{
+    {
     $jobs = DB::table('jobs_clean')
         ->where('company', $company)
         ->paginate(10);
@@ -75,10 +75,48 @@ class DataController extends Controller
         'jobs',
         'company'
     ));
-}
+    }
     public function topSkill()
+{
+    $skills = DB::table('jobs_clean')
+            ->whereNotNull('skills')
+            ->pluck('skills');
+        $allSkills = [];
+
+        foreach ($skills as $skillRow) {
+        $splitSkills = explode(',', $skillRow);
+        foreach ($splitSkills as $skill) {
+            $skill = trim($skill);
+            if ($skill != '') {
+                $allSkills[] = $skill;
+                }
+            }
+        }
+        $skillCounts = array_count_values($allSkills);
+        arsort($skillCounts);
+        $topSkills = array_slice($skillCounts, 0, 10, true);
+        $skillLabels = array_keys($topSkills);
+        $skillTotals = array_values($topSkills);
+
+        $topSkill = $skillLabels[0] ?? 'No Data';
+
+    return view('data.topSkill', compact(
+        'topSkill',
+        'topSkills',
+        'skillLabels',
+        'skillTotals'
+    ));
+    }
+    public function detailSkill(string $skill)
     {
-    return view('data.topSkill');
+        $jobs = DB::table('jobs_clean')
+            ->where('skills', 'like', '%' . $skill . '%')
+            ->paginate(10);
+
+        return view('data.detailSkill', compact(
+            'jobs',
+            'skill'
+        ));
     }
     public function lokasi()
     {

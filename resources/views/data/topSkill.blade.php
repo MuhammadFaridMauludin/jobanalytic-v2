@@ -36,5 +36,104 @@
             </div>
         </div>
     </div>
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row">
+                <!-- chart -->
+                <div class="col-lg-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Grafik Top Skill
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-mentions"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- table -->
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Ranking Skill
+                            </h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Skill</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($topSkills as $skill => $total)
+                                        <tr>
+                                            <td>
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('data.detailSkill', $skill) }}">
+                                                    {{ $skill }}
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{ $total }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            new ApexCharts(document.querySelector("#chart-mentions"), {
+                chart: {
+                    type: "bar",
+                    height: 350,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                series: [{
+                    name: "Jumlah Lowongan",
+                    // data: [120, 98, 85, 70, 60, 45]
+                    data: @json($skillTotals)
+                }],
+                xaxis: {
+                    // categories: [
+                    //     "Laravel",
+                    //     "Python",
+                    //     "React",
+                    //     "Java",
+                    //     "Node.js",
+                    //     "Docker"
+                    // ]
+                    categories: @json($skillLabels)
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        borderRadius: 2,
+                        columnWidth: '50%'
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                colors: ["#206bc4"],
+                grid: {
+                    strokeDashArray: 4
+                }
+            }).render();
+        });
+    </script>
 @endsection

@@ -24,10 +24,13 @@ Route::middleware('auth')->group(function () {
         ->name('data.topCompany');
 
     Route::get('/company/{company}', [DataController::class, 'detailCompany'])
-    ->name('data.companyDetail');
+    ->name('data.detailCompany');
 
     Route::get('/topSkill', [DataController::class, 'topSkill'])
         ->name('data.topSkill');
+
+        Route::get('/skill/{skill}', [DataController::class, 'detailSkill'])
+    ->name('data.detailSkill');
 
     Route::get('/lokasi', [DataController::class, 'lokasi'])
         ->name('data.lokasi');

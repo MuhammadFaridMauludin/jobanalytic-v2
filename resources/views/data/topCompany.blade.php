@@ -76,7 +76,7 @@
                                                 {{ $loop->iteration }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('data.companyDetail', $company->company) }}">
+                                                <a href="{{ route('data.detailCompany', $company->company) }}">
 
                                                     {{ $company->company }}
 
