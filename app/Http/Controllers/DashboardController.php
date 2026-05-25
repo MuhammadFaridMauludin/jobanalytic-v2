@@ -54,8 +54,8 @@ class DashboardController extends Controller
                 ->toArray();
         });
 
-        $categoryLabels = $jobCategories->pluck('keyword');
-        $categoryTotals = $jobCategories->pluck('total');
+        $categoryLabels = array_column($jobCategories, 'keyword');
+        $categoryTotals = array_column($jobCategories, 'total');
 
         //section 3
         // top skills
