@@ -44,8 +44,38 @@ class DataController extends Controller
 }
     public function topCompany()
     {
-    return view('data.topCompany');
+    $topCompanies = DB::table('jobs_clean')
+            ->whereNotNull('company')
+            ->where('company', '!=', '')
+            ->selectRaw('company, COUNT(*) as total_jobs')
+            ->groupBy('company')
+            ->orderByDesc('total_jobs')
+            ->limit(10)
+            ->get();
+        $companyLabels = [];
+        $companyTotals = [];
+        foreach ($topCompanies as $item) {
+        $companyLabels[] = $item->company;
+        $companyTotals[] = $item->total_jobs;
+        }
+
+    return view('data.topCompany', compact(
+        'topCompanies',
+        'companyLabels',
+        'companyTotals'
+    ));
     }
+    public function detailCompany (string $company)
+{
+    $jobs = DB::table('jobs_clean')
+        ->where('company', $company)
+        ->paginate(10);
+
+    return view('data.detailCompany', compact(
+        'jobs',
+        'company'
+    ));
+}
     public function topSkill()
     {
     return view('data.topSkill');

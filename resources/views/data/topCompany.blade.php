@@ -36,5 +36,109 @@
             </div>
         </div>
     </div>
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row">
+                <!-- chart -->
+                <div class="col-lg-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Top Company Hiring
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="chart-top-company"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- table -->
+                <div class="col-lg-5">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">
+                                Ranking Company
+                            </h3>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-vcenter">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Company</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($topCompanies as $company)
+                                        <tr>
+                                            <td>
+                                                {{ $loop->iteration }}
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('data.companyDetail', $company->company) }}">
+
+                                                    {{ $company->company }}
+
+                                                </a>
+                                            </td>
+                                            <td>
+                                                {{ $company->total_jobs }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            new ApexCharts(document.querySelector("#chart-top-company"), {
+                chart: {
+                    type: "bar",
+                    height: 400,
+                    toolbar: {
+                        show: false
+                    }
+                },
+                series: [{
+                    name: "Jumlah Lowongan",
+                    // data: [120, 110, 95, 88, 80, 72, 65, 58, 50, 45]
+                    data: @json($companyTotals)
+                }],
+                xaxis: {
+                    // categories: [
+                    //     "Tokopedia",
+                    //     "Shopee",
+                    //     "Traveloka",
+                    //     "Gojek",
+                    //     "Bukalapak",
+                    //     "Blibli",
+                    //     "Ruangguru",
+                    //     "OVO",
+                    //     "Dana",
+                    //     "Telkom"
+                    // ]
+                    categories: @json($companyLabels)
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        borderRadius: 6
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                colors: ["#206bc4"],
+                grid: {
+                    strokeDashArray: 4
+                }
+            }).render();
+        });
+    </script>
 @endsection

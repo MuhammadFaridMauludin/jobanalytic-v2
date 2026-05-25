@@ -448,7 +448,7 @@
                     series: [{
                         name: "Lowongan",
                         data: [120, 150, 180, 170, 210, 250, 300]
-                        // data: @json($monthlyJobs)
+                        {{-- data: @json($monthlyJobs) --}}
                     }],
                     xaxis: {
                         categories: [

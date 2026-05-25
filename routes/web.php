@@ -23,6 +23,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/topCompany', [DataController::class, 'topCompany'])
         ->name('data.topCompany');
 
+    Route::get('/company/{company}', [DataController::class, 'detailCompany'])
+    ->name('data.companyDetail');
+
     Route::get('/topSkill', [DataController::class, 'topSkill'])
         ->name('data.topSkill');
 

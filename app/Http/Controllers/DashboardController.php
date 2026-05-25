@@ -48,7 +48,6 @@ class DashboardController extends Controller
         $skills = DB::table('jobs_clean')
             ->whereNotNull('skills')
             ->pluck('skills');
-        
         $allSkills = [];
 
         foreach ($skills as $skillRow) {
@@ -81,7 +80,6 @@ class DashboardController extends Controller
             ->orderByDesc('avg_salary')
             ->limit(7)
             ->get();
-        
             $salaryRoleLabels = [];
             $salaryRoleData = [];
             foreach ($salaryPerRole as $item) {
