@@ -40,7 +40,40 @@
                                         {{ ($jobs->currentPage() - 1) * $jobs->perPage() + $loop->iteration }}
                                     </td>
                                     <td>
-                                        {{ $job->title }}
+                                        <div class="fw-bold">
+                                            {{ $job->title }}
+                                        </div>
+                                        <div class="mt-1 d-flex gap-1 flex-wrap">
+                                            @if ($job->experience_level)
+                                                @php
+                                                    $experience = strtolower($job->experience_level);
+                                                @endphp
+                                                @if (str_contains($experience, 'junior'))
+                                                    <span class="badge bg-blue-lt">
+                                                        Junior
+                                                    </span>
+                                                @elseif (str_contains($experience, 'mid'))
+                                                    <span class="badge bg-yellow-lt">
+                                                        Mid
+                                                    </span>
+                                                @elseif (str_contains($experience, 'senior'))
+                                                    <span class="badge bg-red-lt">
+                                                        Senior
+                                                    </span>
+                                                @endif
+                                            @endif
+                                            @if ($job->salary_max)
+                                                @if ($job->salary_max >= 15000000)
+                                                    <span class="badge bg-green-lt">
+                                                        Top Salary
+                                                    </span>
+                                                @elseif ($job->salary_max >= 10000000)
+                                                    <span class="badge bg-lime-lt">
+                                                        High Salary
+                                                    </span>
+                                                @endif
+                                            @endif
+                                        </div>
                                     </td>
                                     <td>
                                         {{ $job->company }}
