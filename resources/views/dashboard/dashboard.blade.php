@@ -7,6 +7,27 @@
                     <!-- Page pre-title -->
                     <div class="page-pretitle">Overview</div>
                     <h2 class="page-title">Dashboard</h2>
+
+                </div>
+                <div class="col-auto">
+
+                    <div class="text-end">
+
+                        <div class="fw-bold">
+
+                            {{ number_format($jobsCollected) }}
+                            Jobs Collected
+
+                        </div>
+
+                        <div class="text-secondary">
+
+                            Updated {{ $lastUpdated }} ago
+
+                        </div>
+
+                    </div>
+
                 </div>
                 <!-- Page title actions -->
                 {{-- <div class="col-auto ms-auto d-print-none">
@@ -34,7 +55,9 @@
                 <!-- END MODAL -->
             </div> --}}
             </div>
+
         </div>
+
         <div class="page-body">
             <div class="container-xl">
                 <!--s1 stats overview -->

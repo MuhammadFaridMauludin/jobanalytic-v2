@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
@@ -134,6 +135,13 @@ class DashboardController extends Controller
         $locationTotals[] = $item->total_jobs;
         }
 
+        $jobsCollected = DB::table('jobs_clean')->count();
+        $lastUpdated = DB::table('jobs_clean')
+            ->max('scraped_at');
+
+        $lastUpdated = Carbon::parse($lastUpdated)
+            ->shortAbsoluteDiffForHumans();
+
         return view('dashboard.dashboard', compact(
             'totalJobs',
             'totalCompanies',
@@ -153,7 +161,9 @@ class DashboardController extends Controller
             'experienceTotals',
             'topLocations',
             'locationLabels',
-            'locationTotals'
+            'locationTotals',
+            'jobsCollected',
+            'lastUpdated'
 
         ));
     }
