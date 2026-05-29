@@ -1053,7 +1053,7 @@
         </ul>
 
         <div class="nav-cta">
-            <a href="/login" class="btn btn-outline">Login</a>
+            {{-- <a href="/login" class="btn btn-outline">Login</a> --}}
             <a href="/dashboard" class="btn btn-primary">Lihat Dashboard</a>
         </div>
     </nav>
