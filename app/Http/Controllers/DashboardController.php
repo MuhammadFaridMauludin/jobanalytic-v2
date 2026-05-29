@@ -43,19 +43,18 @@ class DashboardController extends Controller
                 ->pluck('total');
         });
 
-        // kategori pekerjaan
+        // kategori pekerjaa
         $jobCategories = Cache::remember('dashboard_job_categories', 3600, function () {
             return DB::table('jobs_clean')
                 ->select('keyword', DB::raw('COUNT(*) as total'))
                 ->groupBy('keyword')
                 ->orderByDesc('total')
                 ->limit(5)
-                ->get()
-                ->toJson();
+                ->get();
         });
 
-        $categoryLabels = array_column($jobCategories, 'keyword');
-        $categoryTotals = array_column($jobCategories, 'total');
+        $categoryLabels = $jobCategories->pluck('keyword');
+        $categoryTotals = $jobCategories->pluck('total');
 
         //section 3
         // top skills
@@ -106,8 +105,7 @@ class DashboardController extends Controller
                 ->groupBy('keyword')
                 ->orderByDesc('avg_salary')
                 ->limit(7)
-                ->get()
-                ->toJson();
+                ->get();
         });
 
         $salaryRoleLabels = [];
@@ -127,8 +125,7 @@ class DashboardController extends Controller
                 ->groupBy('company')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toJson();
+                ->get();
         });
 
         $companyLabels = [];
@@ -147,8 +144,7 @@ class DashboardController extends Controller
                 ->where('experience_level', '!=', 'Unknown')
                 ->selectRaw('experience_level, COUNT(*) as total_jobs')
                 ->groupBy('experience_level')
-                ->get()
-                ->toJson();
+                ->get();
         });
 
         $experienceLabels = [];
@@ -171,8 +167,7 @@ class DashboardController extends Controller
                 ->groupBy('location')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toJson();
+                ->get();
         });
 
         $locationLabels = [];
