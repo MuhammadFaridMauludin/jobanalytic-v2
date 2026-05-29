@@ -51,7 +51,7 @@ class DashboardController extends Controller
                 ->orderByDesc('total')
                 ->limit(5)
                 ->get()
-                ->toArray();
+                ->toJson();
         });
 
         $categoryLabels = array_column($jobCategories, 'keyword');
@@ -107,7 +107,7 @@ class DashboardController extends Controller
                 ->orderByDesc('avg_salary')
                 ->limit(7)
                 ->get()
-                ->toArray();
+                ->toJson();
         });
 
         $salaryRoleLabels = [];
@@ -128,7 +128,7 @@ class DashboardController extends Controller
                 ->orderByDesc('total_jobs')
                 ->limit(10)
                 ->get()
-                ->toArray();
+                ->toJson();
         });
 
         $companyLabels = [];
@@ -148,7 +148,7 @@ class DashboardController extends Controller
                 ->selectRaw('experience_level, COUNT(*) as total_jobs')
                 ->groupBy('experience_level')
                 ->get()
-                ->toArray();
+                ->toJson();
         });
 
         $experienceLabels = [];
@@ -172,7 +172,7 @@ class DashboardController extends Controller
                 ->orderByDesc('total_jobs')
                 ->limit(10)
                 ->get()
-                ->toArray();
+                ->toJson();
         });
 
         $locationLabels = [];

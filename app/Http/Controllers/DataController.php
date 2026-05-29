@@ -63,7 +63,7 @@ class DataController extends Controller
                 ->orderByDesc('total_jobs')
                 ->limit(10)
                 ->get()
-                ->toArray();
+                ->toJson();
 
         });
 
@@ -166,7 +166,7 @@ class DataController extends Controller
                 ->orderByDesc('total_jobs')
                 ->limit(10)
                 ->get()
-                ->toArray();
+                ->toJson();
 
         });
 
@@ -207,7 +207,7 @@ class DataController extends Controller
                 ->orderByDesc('avg_salary')
                 ->limit(10)
                 ->get()
-                ->toArray();
+                ->toJson();
 
         });
 
