@@ -62,8 +62,7 @@ class DataController extends Controller
                 ->groupBy('company')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toJson();
+                ->get();
 
         });
 
@@ -165,8 +164,7 @@ class DataController extends Controller
                 ->groupBy('location')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toJson();
+                ->get();
 
         });
 
@@ -206,8 +204,7 @@ class DataController extends Controller
                 ->groupBy('title')
                 ->orderByDesc('avg_salary')
                 ->limit(10)
-                ->get()
-                ->toJson();
+                ->get();
 
         });
 
