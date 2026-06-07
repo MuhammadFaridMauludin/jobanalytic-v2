@@ -40,7 +40,8 @@ class DashboardController extends Controller
                 ->selectRaw('MONTH(scraped_at) as month, COUNT(*) as total')
                 ->groupBy('month')
                 ->orderBy('month')
-                ->pluck('total');
+                ->pluck('total')
+                ->toArray();
         });
 
         // kategori pekerjaa
@@ -50,7 +51,8 @@ class DashboardController extends Controller
                 ->groupBy('keyword')
                 ->orderByDesc('total')
                 ->limit(5)
-                ->get();
+                ->get()
+                ->toArray();
         });
 
         $categoryLabels = $jobCategories->pluck('keyword');
@@ -105,7 +107,8 @@ class DashboardController extends Controller
                 ->groupBy('keyword')
                 ->orderByDesc('avg_salary')
                 ->limit(7)
-                ->get();
+                ->get()
+                ->toArray();
         });
 
         $salaryRoleLabels = [];
@@ -125,7 +128,8 @@ class DashboardController extends Controller
                 ->groupBy('company')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get();
+                ->get()
+                ->toArray();
         });
 
         $companyLabels = [];
@@ -144,7 +148,8 @@ class DashboardController extends Controller
                 ->where('experience_level', '!=', 'Unknown')
                 ->selectRaw('experience_level, COUNT(*) as total_jobs')
                 ->groupBy('experience_level')
-                ->get();
+                ->get()
+                ->toArray();
         });
 
         $experienceLabels = [];
@@ -167,7 +172,8 @@ class DashboardController extends Controller
                 ->groupBy('location')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get();
+                ->get()
+                ->toArray();
         });
 
         $locationLabels = [];
