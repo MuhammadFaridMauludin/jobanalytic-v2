@@ -40,8 +40,7 @@ class DashboardController extends Controller
                 ->selectRaw('MONTH(scraped_at) as month, COUNT(*) as total')
                 ->groupBy('month')
                 ->orderBy('month')
-                ->pluck('total')
-                ->toArray();
+                ->pluck('total');
         });
 
         // kategori pekerjaa
@@ -51,12 +50,11 @@ class DashboardController extends Controller
                 ->groupBy('keyword')
                 ->orderByDesc('total')
                 ->limit(5)
-                ->get()
-                ->toArray();
+                ->get();
         });
 
-        $categoryLabels = array_column($jobCategories, 'keyword');
-        $categoryTotals = array_column($jobCategories, 'total');
+        $categoryLabels = $jobCategories->pluck('keyword');
+        $categoryTotals = $jobCategories->pluck('total');
 
         //section 3
         // top skills
@@ -107,17 +105,16 @@ class DashboardController extends Controller
                 ->groupBy('keyword')
                 ->orderByDesc('avg_salary')
                 ->limit(7)
-                ->get()
-                ->toArray();
+                ->get();
         });
 
         $salaryRoleLabels = [];
         $salaryRoleData = [];
 
         foreach ($salaryPerRole as $item) {
-        $salaryRoleLabels[] = $item['keyword'];
-        $salaryRoleData[] = round($item['avg_salary']);
-    }
+            $salaryRoleLabels[] = $item->keyword;
+            $salaryRoleData[] = round($item->avg_salary);
+        }
         //section 4
         // top perusahaan
         $topCompanies = Cache::remember('dashboard_top_companies', 3600, function () {
@@ -128,17 +125,16 @@ class DashboardController extends Controller
                 ->groupBy('company')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toArray();
+                ->get();
         });
 
         $companyLabels = [];
         $companyTotals = [];
 
         foreach ($topCompanies as $item) {
-        $companyLabels[] = $item['company'];
-        $companyTotals[] = $item['total_jobs'];
-    }
+            $companyLabels[] = $item->company;
+            $companyTotals[] = $item->total_jobs;
+        }
 
         // experience level
         $jobExperience = Cache::remember('dashboard_experience', 3600, function () {
@@ -148,18 +144,16 @@ class DashboardController extends Controller
                 ->where('experience_level', '!=', 'Unknown')
                 ->selectRaw('experience_level, COUNT(*) as total_jobs')
                 ->groupBy('experience_level')
-                ->get()
-                ->toArray();
+                ->get();
         });
 
         $experienceLabels = [];
         $experienceTotals = [];
 
         foreach ($jobExperience as $item) {
-        $experienceLabels[] = $item['experience_level'];
-        $experienceTotals[] = $item['total_jobs'];
-    }
-
+            $experienceLabels[] = $item->experience_level;
+            $experienceTotals[] = $item->total_jobs;
+        }
 
         //section 5
         //lokasi
@@ -173,17 +167,16 @@ class DashboardController extends Controller
                 ->groupBy('location')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toArray();
+                ->get();
         });
 
         $locationLabels = [];
         $locationTotals = [];
 
         foreach ($topLocations as $item) {
-        $locationLabels[] = $item['location'];
-        $locationTotals[] = $item['total_jobs'];
-    }
+            $locationLabels[] = $item->location;
+            $locationTotals[] = $item->total_jobs;
+        }
 
         $jobsCollected = Cache::remember('dashboard_jobs_collected', 3600, function () {
             return DB::table('jobs_clean')->count();

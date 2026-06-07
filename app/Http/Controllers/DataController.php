@@ -36,8 +36,7 @@ class DataController extends Controller
                 ->select('location')
                 ->distinct()
                 ->orderBy('location')
-                ->pluck('location')
-                ->toArray();
+                ->pluck('location');
 
         });
 
@@ -63,8 +62,7 @@ class DataController extends Controller
                 ->groupBy('company')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toArray();
+                ->get();
 
         });
 
@@ -72,9 +70,11 @@ class DataController extends Controller
         $companyTotals = [];
 
         foreach ($topCompanies as $item) {
-        $companyLabels[] = $item['company'];
-        $companyTotals[] = $item['total_jobs'];
-    }
+
+            $companyLabels[] = $item->company;
+            $companyTotals[] = $item->total_jobs;
+
+        }
 
         return view('data.topCompany', compact(
             'topCompanies',
@@ -164,14 +164,13 @@ class DataController extends Controller
                 ->groupBy('location')
                 ->orderByDesc('total_jobs')
                 ->limit(10)
-                ->get()
-                ->toArray();
+                ->get();
 
         });
 
-        $locationLabels = array_column($locations, 'location');
-        $locationTotals = array_column($locations, 'total_jobs');
+        $locationLabels = $locations->pluck('location');
 
+        $locationTotals = $locations->pluck('total_jobs');
 
         return view('data.lokasi', compact(
             'locations',
@@ -205,14 +204,16 @@ class DataController extends Controller
                 ->groupBy('title')
                 ->orderByDesc('avg_salary')
                 ->limit(10)
-                ->get()
-                ->toArray();
+                ->get();
 
         });
 
-        $salaryLabels = array_column($salaryRoles, 'title');
-        $salaryTotals = array_column($salaryRoles, 'avg_salary');
+        $salaryLabels = $salaryRoles->pluck('title');
+
+        $salaryTotals = $salaryRoles->pluck('avg_salary');
+
         $highestSalaryRole = $salaryLabels[0] ?? 'No Data';
+
         $highestSalaryValue = $salaryTotals[0] ?? 0;
 
         return view('data.salary', compact(
