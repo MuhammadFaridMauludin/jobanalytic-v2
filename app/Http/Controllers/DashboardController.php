@@ -55,8 +55,8 @@ class DashboardController extends Controller
                 ->toArray();
         });
 
-        $categoryLabels = $jobCategories->pluck('keyword');
-        $categoryTotals = $jobCategories->pluck('total');
+        $categoryLabels = array_column($jobCategories, 'keyword');
+        $categoryTotals = array_column($jobCategories, 'total');
 
         //section 3
         // top skills
@@ -115,9 +115,9 @@ class DashboardController extends Controller
         $salaryRoleData = [];
 
         foreach ($salaryPerRole as $item) {
-            $salaryRoleLabels[] = $item->keyword;
-            $salaryRoleData[] = round($item->avg_salary);
-        }
+        $salaryRoleLabels[] = $item['keyword'];
+        $salaryRoleData[] = round($item['avg_salary']);
+    }
         //section 4
         // top perusahaan
         $topCompanies = Cache::remember('dashboard_top_companies', 3600, function () {
@@ -136,9 +136,9 @@ class DashboardController extends Controller
         $companyTotals = [];
 
         foreach ($topCompanies as $item) {
-            $companyLabels[] = $item->company;
-            $companyTotals[] = $item->total_jobs;
-        }
+        $companyLabels[] = $item['company'];
+        $companyTotals[] = $item['total_jobs'];
+    }
 
         // experience level
         $jobExperience = Cache::remember('dashboard_experience', 3600, function () {
@@ -156,9 +156,10 @@ class DashboardController extends Controller
         $experienceTotals = [];
 
         foreach ($jobExperience as $item) {
-            $experienceLabels[] = $item->experience_level;
-            $experienceTotals[] = $item->total_jobs;
-        }
+        $experienceLabels[] = $item['experience_level'];
+        $experienceTotals[] = $item['total_jobs'];
+    }
+
 
         //section 5
         //lokasi
@@ -180,9 +181,9 @@ class DashboardController extends Controller
         $locationTotals = [];
 
         foreach ($topLocations as $item) {
-            $locationLabels[] = $item->location;
-            $locationTotals[] = $item->total_jobs;
-        }
+        $locationLabels[] = $item['location'];
+        $locationTotals[] = $item['total_jobs'];
+    }
 
         $jobsCollected = Cache::remember('dashboard_jobs_collected', 3600, function () {
             return DB::table('jobs_clean')->count();
