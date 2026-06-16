@@ -371,6 +371,15 @@
                 </div>
             </div>
         </div>
+        <div>
+            Company Labels:
+            {{ json_encode($companyLabels) }}
+        </div>
+
+        <div>
+            Company Totals:
+            {{ json_encode($companyTotals) }}
+        </div>
         <!-- untuk stat overview -->
         <script>
             document.addEventListener("DOMContentLoaded", function() {
