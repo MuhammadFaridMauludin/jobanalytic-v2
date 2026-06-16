@@ -57,6 +57,9 @@
             </div>
 
         </div>
+        <div style="background:red;color:white;padding:10px">
+            Jumlah lokasi: {{ count($topLocations) }}
+        </div>
 
         <div class="page-body">
             <div class="container-xl">
@@ -370,15 +373,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            Company Labels:
-            {{ json_encode($companyLabels) }}
-        </div>
-
-        <div>
-            Company Totals:
-            {{ json_encode($companyTotals) }}
         </div>
         <!-- untuk stat overview -->
         <script>
