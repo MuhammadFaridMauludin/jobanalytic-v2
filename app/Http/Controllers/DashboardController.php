@@ -11,9 +11,10 @@ class DashboardController extends Controller
     {
         $totalJobs = DB::table('jobs_clean')->count();
 
+
         $totalCompanies = DB::table('jobs_clean')
-            ->distinct('company')
-            ->count('company');
+            ->selectRaw('COUNT(DISTINCT company) as total')
+            ->value('total');
 
         $avgSalary = DB::table('jobs_clean')
             ->whereNotNull('salary_min')
@@ -22,8 +23,8 @@ class DashboardController extends Controller
             ->value('avg_salary');
 
         $monthlyJobs = DB::table('jobs_clean')
-            ->selectRaw('MONTH(scraped_at) as month, COUNT(*) as total')
-            ->groupBy('month')
+            ->selectRaw('EXTRACT(MONTH FROM scraped_at) as month, COUNT(*) as total')
+            ->groupByRaw('EXTRACT(MONTH FROM scraped_at)')
             ->orderBy('month')
             ->pluck('total');
 
