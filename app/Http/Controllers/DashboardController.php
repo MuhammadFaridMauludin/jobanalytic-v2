@@ -105,21 +105,15 @@ class DashboardController extends Controller
         }
 
         $topLocations = DB::table('jobs_clean')
+            ->select('location', DB::raw('COUNT(*) as total_jobs'))
             ->whereNotNull('location')
-            ->where('location', '!=', '')
-            ->where('location', '!=', 'Unknown')
-            ->selectRaw('location as "location", COUNT(*) as "total_jobs"')
             ->groupBy('location')
             ->orderByDesc('total_jobs')
             ->limit(10)
             ->get();
 
-        $locationLabels = [];
-        $locationTotals = [];
-        foreach ($topLocations as $item) {
-            $locationLabels[] = $item->location;
-            $locationTotals[] = $item->total_jobs;
-        }
+        $locationLabels = $topLocations->pluck('location')->toArray();
+        $locationTotals = $topLocations->pluck('total_jobs')->toArray();
 
         $jobsCollected = DB::table('jobs_clean')->count();
 
