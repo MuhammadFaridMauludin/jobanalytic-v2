@@ -29,7 +29,7 @@ class DashboardController extends Controller
             ->pluck('total');
 
         $jobCategories = DB::table('jobs_clean')
-            ->select('keyword', DB::raw('COUNT(*) as total'))
+            ->selectRaw('keyword as "keyword", COUNT(*) as "total"')
             ->groupBy('keyword')
             ->orderByDesc('total')
             ->limit(5)
@@ -76,9 +76,9 @@ class DashboardController extends Controller
         $topCompanies = DB::table('jobs_clean')
             ->whereNotNull('company')
             ->where('company', '!=', '')
-            ->selectRaw('company, COUNT(*) as total_jobs')
+            ->selectRaw('company as "company", COUNT(*) as "total_jobs"')
             ->groupBy('company')
-            ->orderByDesc('total_jobs')
+            ->orderByRaw('COUNT(*) DESC')
             ->limit(10)
             ->get();
 
@@ -93,7 +93,7 @@ class DashboardController extends Controller
             ->whereNotNull('experience_level')
             ->where('experience_level', '!=', '')
             ->where('experience_level', '!=', 'Unknown')
-            ->selectRaw('experience_level, COUNT(*) as total_jobs')
+            ->selectRaw('experience_level as "experience_level", COUNT(*) as "total_jobs"')
             ->groupBy('experience_level')
             ->get();
 
@@ -108,7 +108,7 @@ class DashboardController extends Controller
             ->whereNotNull('location')
             ->where('location', '!=', '')
             ->where('location', '!=', 'Unknown')
-            ->selectRaw('location, COUNT(*) as total_jobs')
+            ->selectRaw('location as "location", COUNT(*) as "total_jobs"')
             ->groupBy('location')
             ->orderByDesc('total_jobs')
             ->limit(10)

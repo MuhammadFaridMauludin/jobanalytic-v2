@@ -40,12 +40,11 @@ class DataController extends Controller
         $topCompanies = DB::table('jobs_clean')
             ->whereNotNull('company')
             ->where('company', '!=', '')
-            ->selectRaw('company, COUNT(*) as total_jobs')
+            ->selectRaw('company as "company", COUNT(*) as "total_jobs"')
             ->groupBy('company')
-            ->orderByDesc('total_jobs')
+            ->orderByRaw('COUNT(*) DESC')
             ->limit(10)
             ->get();
-
         $companyLabels = [];
         $companyTotals = [];
         foreach ($topCompanies as $item) {
