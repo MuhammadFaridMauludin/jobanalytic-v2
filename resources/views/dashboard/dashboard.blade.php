@@ -6,7 +6,7 @@
                 <div class="col">
                     <!-- Page pre-title k-->
                     <div class="page-pretitle">Overview</div>
-                    <h2 class="page-title">Dashboard</h2>
+                    <h2 class="page-title">Dashboard test</h2>
 
                 </div>
                 <div class="col-auto">
