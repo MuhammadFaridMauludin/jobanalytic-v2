@@ -73,14 +73,13 @@ class DashboardController extends Controller
             $salaryRoleData[] = round($item->avg_salary);
         }
 
-        $topCompanies = DB::table('jobs_clean')
-            ->whereNotNull('company')
-            ->where('company', '!=', '')
-            ->selectRaw('company as "company", COUNT(*) as "total_jobs"')
-            ->groupBy('company')
-            ->orderByRaw('COUNT(*) DESC')
-            ->limit(10)
-            ->get();
+       $topCompanies = DB::table('jobs_clean')
+    ->whereNotNull('company')
+    ->selectRaw('company, COUNT(*) as total_jobs')
+    ->groupBy('company')
+    ->orderByRaw('COUNT(*) DESC')
+    ->limit(10)
+    ->get();
 
         $companyLabels = [];
         $companyTotals = [];
@@ -90,12 +89,9 @@ class DashboardController extends Controller
         }
 
         $jobExperience = DB::table('jobs_clean')
-            ->whereNotNull('experience_level')
-            ->where('experience_level', '!=', '')
-            ->where('experience_level', '!=', 'Unknown')
-            ->selectRaw('experience_level as "experience_level", COUNT(*) as "total_jobs"')
-            ->groupBy('experience_level')
-            ->get();
+    ->select('experience_level', DB::raw('COUNT(*) as total_jobs'))
+    ->groupBy('experience_level')
+    ->get();
 
         $experienceLabels = [];
         $experienceTotals = [];
@@ -105,12 +101,12 @@ class DashboardController extends Controller
         }
 
         $topLocations = DB::table('jobs_clean')
-            ->select('location', DB::raw('COUNT(*) as total_jobs'))
-            ->whereNotNull('location')
-            ->groupBy('location')
-            ->orderByDesc('total_jobs')
-            ->limit(10)
-            ->get();
+    ->select('location', DB::raw('COUNT(*) as total_jobs'))
+    ->whereNotNull('location')
+    ->groupBy('location')
+    ->orderByDesc('total_jobs')
+    ->limit(10)
+    ->get();
 
         $locationLabels = $topLocations->pluck('location')->toArray();
         $locationTotals = $topLocations->pluck('total_jobs')->toArray();
