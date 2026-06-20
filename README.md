@@ -51,7 +51,6 @@ Rather than simply displaying raw job postings, the platform transforms data int
 | Daril Oktavian | 254107027002 | Cloud & Database Administrator | Configured Oracle Cloud infrastructure, managed Autonomous Database, designed database schemas, and maintained network connectivity. |
 | Muhammad Farid Mauludin | 254107027015 | Fullstack Developer / UI Specialist | Developed the Laravel dashboard, integrated database services, and created interactive data visualizations using Chart.js. |
 
----
 
 ## 🌍 System Scale
 
