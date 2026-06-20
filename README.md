@@ -40,7 +40,7 @@ Rather than simply displaying raw job postings, the platform transforms data int
 * **Project Type:** Project Based Learning (PBL)
 * **Field:** Big Data & Cloud Computing
 * **Institution:** State Polytechnic of Malang
-* **Academic Year:** 2025
+* **Academic Year:** 2026
 
 ### Team Members
 
