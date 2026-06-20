@@ -53,18 +53,6 @@ Rather than simply displaying raw job postings, the platform transforms data int
 
 ---
 
-## 👨‍💻 My Contribution
-
-As part of the project team, I contributed to the data analytics and dashboard development process, including:
-
-* Designing analytical metrics and business insights
-* Creating SQL aggregations for trend analysis
-* Developing dashboard visualizations
-* Analyzing job market patterns and workforce demands
-* Supporting data validation and interpretation
-
----
-
 ## 🌍 System Scale
 
 * Automated daily data collection from JobStreet
