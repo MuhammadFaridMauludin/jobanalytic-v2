@@ -91,7 +91,7 @@ Raw datasets are difficult to interpret.
 ## 🏗️ System Architecture
 
 <p align="center">
-  <img src="Architecture.png" width="700"/>
+  <img src="Arsitektur-Revisi2.png" width="700"/>
 </p>
 
 <p align="center">
@@ -241,11 +241,11 @@ https://projectakhir.my.id/
 
 ### Demo Account
 
-**Email**
-[admin@gmail.com](mailto:admin@gmail.com)
+**Email** :
+dariloktavian@gmail.com
 
-**Password**
-password123
+**Password** :
+12345678
 
 ---
 
