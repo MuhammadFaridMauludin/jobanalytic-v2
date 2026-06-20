@@ -42,14 +42,14 @@ Rather than simply displaying raw job postings, the platform transforms data int
 * **Institution:** State Polytechnic of Malang
 * **Academic Year:** 2026
 
-### Team Members
+### 👥 Team Members
 
-| Name                    | Student ID   |
-| ----------------------- | ------------ |
-| Achmad Doli Harahap     | 254107027010 |
-| Bagas Yudha Aditya      | 254107027007 |
-| Daril Oktavian          | 254107027002 |
-| Muhammad Farid Mauludin | 254107027015 |
+| Name | Student ID | Role | Contribution |
+|------|------------|------|--------------|
+| Achmad Doli Harahap | 254107027010 | Data Analyst | Performed SQL-based data analysis, generated job market insights, defined analytical metrics, and prepared statistics for the dashboard. |
+| Bagas Yudha Aditya | 254107027007 | Data Engineer | Developed web scraping and ETL pipelines, automated data collection, cleaned datasets, and managed data integration processes. |
+| Daril Oktavian | 254107027002 | Cloud & Database Administrator | Configured Oracle Cloud infrastructure, managed Autonomous Database, designed database schemas, and maintained network connectivity. |
+| Muhammad Farid Mauludin | 254107027015 | Fullstack Developer / UI Specialist | Developed the Laravel dashboard, integrated database services, and created interactive data visualizations using Chart.js. |
 
 ---
 
@@ -102,32 +102,75 @@ The system architecture consists of automated data collection services, ETL proc
 
 ---
 
-## 🚀 Key Features
+# 🚀 Key Features
+
+<table>
+<tr>
+<td align="center" width="50%">
 
 ### 📊 Job Market Dashboard
 
-Provides a complete overview of IT job market conditions.
+<img src="halaman utama.png" alt="Job Market Dashboard" width="100%">
 
-### 💼 Top IT Positions Analysis
+Provides a comprehensive overview of the IT job market, including total job postings, company participation, salary distribution, and key recruitment metrics.
 
-Displays the most demanded IT job positions.
+</td>
 
-### 📍 Regional Distribution Analysis
+<td align="center" width="50%">
 
-Shows cities and regions with the highest number of IT vacancies.
+### 📄 Job Vacancy Analysis
 
-### 💰 Salary Analytics
+<img src="lowongan.png" alt="Job Vacancy Analysis" width="100%">
 
-Provides salary range insights based on job categories.
+Analyzes available IT job opportunities and highlights the most in-demand job positions across the market.
 
-### 📄 Contract Type Analysis
+</td>
+</tr>
 
-Analyzes Full-Time, Contract, and Remote opportunities.
+<tr>
+<td align="center">
 
-### 📈 Historical Trend Analysis
+### 🏢 Top Company Analysis
 
-Tracks job market changes over time.
+<img src="top company.png" alt="Top Company Analysis" width="100%">
 
+Identifies companies with the highest number of job postings, providing insights into the most active recruiters in the industry.
+
+</td>
+
+<td align="center">
+
+### 🛠️ Top Skills Analysis
+
+<img src="top skill.png" alt="Top Skills Analysis" width="100%">
+
+Examines the most frequently requested technical and professional skills to help understand current market demands.
+
+</td>
+</tr>
+
+<tr>
+<td align="center">
+
+### 💰 Salary Analysis
+
+<img src="salry.png" alt="Salary Analysis" width="100%">
+
+Provides salary range insights for various IT roles, supporting career planning and compensation benchmarking.
+
+</td>
+
+<td align="center">
+
+### 📍 Location Analysis
+
+<img src="location.png" alt="Location Analysis" width="100%">
+
+Visualizes the geographical distribution of job opportunities, highlighting regions with the highest hiring activity.
+
+</td>
+</tr>
+</table>
 ---
 
 ## 🧠 Design Reasoning
