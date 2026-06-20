@@ -1,58 +1,337 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📊 Job Analytics: National IT Job Market Trend Analysis System Using Big Data & Cloud Computing
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Project-PBL_2025-blue?style=for-the-badge" alt="PBL">
+  <img src="https://img.shields.io/badge/Field-Big_Data-orange?style=for-the-badge" alt="Big Data">
+  <img src="https://img.shields.io/badge/Cloud-Oracle_Cloud-red?style=for-the-badge" alt="OCI">
 </p>
 
-## About Laravel
+## 🧠 Why We Built This
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The rapid growth of the digital economy has significantly increased the demand for Information Technology (IT) professionals across various industries. Every day, thousands of job vacancies are published on recruitment platforms, creating a massive volume of data that contains valuable insights regarding industry needs, required skills, salary trends, and employment opportunities.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+However, this information is often scattered across multiple platforms and remains difficult to analyze manually. Educational institutions, students, and job seekers frequently struggle to identify which skills and positions are currently in demand.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project was developed to answer a simple but important question:
 
-## Learning Laravel
+> *How can we transform large-scale job vacancy data into meaningful insights that help educational institutions and job seekers understand current industry demands?*
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 What We Built
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+We developed a web-based analytics platform that automatically collects, processes, and analyzes IT job vacancy data from JobStreet using Big Data and Cloud Computing technologies.
 
-## Agentic Development
+The system provides:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+* 📈 Real-time job market analytics
+* 💼 Top IT positions currently in demand
+* 🏙️ Geographic distribution of IT vacancies
+* 💰 Salary range analysis
+* 📄 Employment contract classification
+* 🔍 Skill and job trend identification
 
-```bash
-composer require laravel/boost --dev
+Rather than simply displaying raw job postings, the platform transforms data into actionable insights through an interactive analytics dashboard.
 
-php artisan boost:install
-```
+---
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+## 🎯 Project Context
 
-## Contributing
+* **Project Type:** Project Based Learning (PBL)
+* **Field:** Big Data & Cloud Computing
+* **Institution:** State Polytechnic of Malang
+* **Academic Year:** 2025
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Team Members
 
-## Code of Conduct
+| Name                    | Student ID   |
+| ----------------------- | ------------ |
+| Achmad Doli Harahap     | 254107027010 |
+| Bagas Yudha Aditya      | 254107027007 |
+| Daril Oktavian          | 254107027002 |
+| Muhammad Farid Mauludin | 254107027015 |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## 👨‍💻 My Contribution
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+As part of the project team, I contributed to the data analytics and dashboard development process, including:
 
-## License
+* Designing analytical metrics and business insights
+* Creating SQL aggregations for trend analysis
+* Developing dashboard visualizations
+* Analyzing job market patterns and workforce demands
+* Supporting data validation and interpretation
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🌍 System Scale
+
+* Automated daily data collection from JobStreet
+* Large-scale IT job vacancy dataset
+* Cloud-based infrastructure deployment
+* Automated ETL pipeline
+* Interactive web dashboard
+* Historical trend monitoring
+
+---
+
+## ⚙️ Our Approach
+
+Instead of manually collecting and analyzing job market information, we designed an automated analytics pipeline based on three core principles:
+
+### 1. Automated Data Collection
+
+Job market data changes rapidly.
+
+➡️ The system automatically crawls JobStreet vacancy data daily using Python-based scraping services.
+
+### 2. Data Transformation & Standardization
+
+Raw vacancy descriptions often contain inconsistent formats.
+
+➡️ ETL processes clean, normalize, and classify job positions, skills, salary information, and employment types.
+
+### 3. Insight-Driven Visualization
+
+Raw datasets are difficult to interpret.
+
+➡️ Interactive dashboards transform complex datasets into meaningful charts and business insights.
+
+---
+
+## 🏗️ System Architecture
+
+<p align="center">
+  <img src="Architecture.png" width="700"/>
+</p>
+
+<p align="center">
+  <em>
+The system architecture consists of automated data collection services, ETL processing pipelines, cloud-based storage, analytical databases, and a web dashboard that delivers real-time insights regarding IT job market trends across Indonesia.
+  </em>
+</p>
+
+---
+
+## 🚀 Key Features
+
+### 📊 Job Market Dashboard
+
+Provides a complete overview of IT job market conditions.
+
+### 💼 Top IT Positions Analysis
+
+Displays the most demanded IT job positions.
+
+### 📍 Regional Distribution Analysis
+
+Shows cities and regions with the highest number of IT vacancies.
+
+### 💰 Salary Analytics
+
+Provides salary range insights based on job categories.
+
+### 📄 Contract Type Analysis
+
+Analyzes Full-Time, Contract, and Remote opportunities.
+
+### 📈 Historical Trend Analysis
+
+Tracks job market changes over time.
+
+---
+
+## 🧠 Design Reasoning
+
+### The Problem
+
+The IT job market evolves rapidly, making it difficult for educational institutions and job seekers to stay aligned with industry demands.
+
+Without proper analytics:
+
+* Skills become outdated
+* Curriculum relevance decreases
+* Job seekers lack market awareness
+
+### The Solution
+
+Our system automatically transforms large volumes of job vacancy data into meaningful information through:
+
+1. Automated Web Scraping
+2. ETL Processing
+3. Cloud-Based Data Storage
+4. Interactive Analytics Dashboard
+
+This enables users to make data-driven decisions based on actual industry demands.
+
+---
+
+## 📊 Dataset
+
+### Source
+
+* JobStreet Indonesia
+
+### Data Collected
+
+* Job Title
+* Company Name
+* Location
+* Required Skills
+* Experience Level
+* Salary Information
+* Employment Type
+* Posting Date
+
+### Format
+
+* JSON
+* CSV
+
+---
+
+## 🔄 Data Analytics Pipeline
+
+### 1. Data Collection
+
+JobStreet → Python Scraper
+
+### 2. Data Cleaning
+
+Cleaning duplicate records and handling missing values.
+
+### 3. Data Transformation
+
+* Skill Extraction
+* Salary Normalization
+* Job Classification
+* Contract Classification
+
+### 4. Data Storage
+
+* Oracle Object Storage (Data Lake)
+* Oracle Autonomous Data Warehouse
+
+### 5. Analytics
+
+* Top Positions Analysis
+* Salary Analysis
+* Regional Analysis
+* Trend Analysis
+
+### 6. Dashboard Visualization
+
+Laravel-based analytics dashboard.
+
+---
+
+## 📈 Dashboard Analytics
+
+### Headline Metrics
+
+* Total Job Vacancies
+* Top Job Position
+* Top Hiring City
+* Last Updated Status
+
+### Visual Analytics
+
+* Job Trends Over Time
+* Top Positions Ranking
+* Salary Distribution
+* Employment Type Distribution
+* Regional Distribution Analysis
+
+---
+
+## 🌐 Live System Access
+
+### Dashboard
+
+https://projectakhir.my.id/
+
+### Demo Account
+
+**Email**
+[admin@gmail.com](mailto:admin@gmail.com)
+
+**Password**
+password123
+
+---
+
+## 🛠️ Tech Stack
+
+| Category         | Technologies                     |
+| ---------------- | -------------------------------- |
+| Data Collection  | Python, Selenium                 |
+| Data Processing  | Python, Pandas                   |
+| Backend          | PHP, Laravel                     |
+| Database         | MySQL                            |
+| Cloud Platform   | Oracle Cloud Infrastructure      |
+| Data Lake        | Oracle Object Storage            |
+| Data Warehouse   | Oracle Autonomous Data Warehouse |
+| Visualization    | Chart.js                         |
+| Containerization | Docker                           |
+| Version Control  | GitHub                           |
+| Deployment       | CI/CD Pipeline                   |
+
+---
+
+## 📊 Key Findings
+
+The analysis revealed several important insights:
+
+* Software Engineering roles remain highly demanded.
+* Demand for Data-related positions continues to grow.
+* Jakarta remains the dominant hiring location.
+* Salary levels vary significantly across job categories.
+* Contract and remote opportunities are increasing in several sectors.
+
+🚨 **Insight**
+
+Technology trends continuously evolve, making data-driven workforce analysis essential for educational institutions, students, and job seekers to remain aligned with industry requirements.
+
+---
+
+## 📚 Academic Context
+
+This project was developed as part of the Project Based Learning (PBL) program at State Polytechnic of Malang.
+
+### Project Title
+
+**Job Analytics: National IT Job Market Trend Analysis System Using Big Data & Cloud Computing**
+
+### Focus Areas
+
+* Big Data Analytics
+* Cloud Computing
+* Data Engineering
+* Web Analytics Dashboard
+* Workforce Intelligence
+
+---
+
+## 🎓 Learning Outcomes
+
+Through this project, we gained practical experience in:
+
+* Designing ETL pipelines
+* Implementing web scraping systems
+* Building cloud-based architectures
+* Developing interactive dashboards
+* Analyzing large-scale datasets
+* Applying Big Data concepts in real-world scenarios
+
+---
+
+## 📄 Conclusion
+
+This project successfully integrates automated data collection, ETL processing, cloud infrastructure, and analytics visualization into a unified platform for monitoring IT job market trends.
+
+By transforming raw job vacancy data into actionable insights, the system helps educational institutions, students, and job seekers better understand workforce demands and make informed decisions based on current market conditions.
+
+---
+
+⭐ If you find this project interesting, feel free to explore the dashboard and learn how Big Data and Cloud Computing can be applied to workforce analytics.
