@@ -1,9 +1,9 @@
 # 📊 Job Analytics: National IT Job Market Trend Analysis System Using Big Data & Cloud Computing
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Project-PBL_2026-blue?style=for-the-badge" alt="PBL">
-  <img src="https://img.shields.io/badge/Field-Big_Data-orange?style=for-the-badge" alt="Big Data">
-  <img src="https://img.shields.io/badge/Cloud-Oracle_Cloud-red?style=for-the-badge" alt="OCI">
+<img src="https://img.shields.io/badge/Program-PBL_2026-blue?style=for-the-badge" alt="PBL">
+  <img src="https://img.shields.io/badge/Big_Data-Analytics-orange?style=for-the-badge" alt="Big Data">
+  <img src="https://img.shields.io/badge/Cloud-Computing-red?style=for-the-badge" alt="Cloud Computing">
 </p>
 
 ## 🧠 Why We Built This
